@@ -43,6 +43,17 @@ run: BugOpen
 # Target needed to install the executable to user .local
 
 install: BugOpen
+	@if [ ! -f "BugOpen.class" ]; then \
+	    echo "Executable not found !"; \
+		echo "---> Did you run make yet?"; \
+		exit 1; \
+	fi
+
+	# Kill any active instances.
+	for FILE in $$(pgrep java) ; do \
+		ps -p $$FILE -o args --no-headers | egrep BugOpen && kill $$FILE; \
+	done
+
 	rm -rf ~/.local/BugOpen
 	mkdir ~/.local/BugOpen
 	cp 'BugOpen.class' ~/.local/BugOpen
@@ -60,6 +71,7 @@ install: BugOpen
 # Target needed to uninstall the executable from user .local
 
 uninstall:
+	# Kill any active instances.
 	for FILE in $$(pgrep java) ; do \
 		ps -p $$FILE -o args --no-headers | egrep BugOpen && kill $$FILE; \
 	done
