@@ -1,6 +1,6 @@
 # BugOpen
 
-!['BugOpen](https://github.com/markcapella/BugOpen/blob/main/assets/images/screenshot.png)
+!['BugOpen'](https://github.com/markcapella/BugOpen/blob/main/assets/images/screenshot.png)
 
 
 ## Description

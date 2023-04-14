@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.event.EventHandler;;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;

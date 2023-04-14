@@ -43,53 +43,64 @@ run: BugOpen
 # Target needed to install the executable to user .local
 
 install: BugOpen
-	@if [ ! -f "BugOpen.class" ]; then \
-	    echo "Executable not found !"; \
-		echo "---> Did you run make yet?"; \
-		exit 1; \
-	fi
+ifneq ($(shell id -u), 0)
+	@echo "You must be root to perform this action. Please re-run with:"
+	@echo "   sudo make install"
+	@echo
+	@exit 1;
+endif
 
-	# Kill any active instances.
-	for FILE in $$(pgrep java) ; do \
-		ps -p $$FILE -o args --no-headers | egrep BugOpen && kill $$FILE; \
-	done
+	@echo
+	@echo "sudo make install: starts ..."
 
-	rm -rf ~/.local/BugOpen
-	mkdir ~/.local/BugOpen
-	cp 'BugOpen.class' ~/.local/BugOpen
-	cp 'BugOpen$$1.class' ~/.local/BugOpen
-	cp 'BugOpen$$2.class' ~/.local/BugOpen
+	rm -rf /usr/local/BugOpen
+	mkdir /usr/local/BugOpen
 
-	cp 'BugOpen.png' ~/.local/BugOpen
-	cp 'BugOpen.png' ~/.local/share/icons/hicolor/48x48/apps/
+	cp *.class /usr/local/BugOpen
 
-	cp 'BugOpen.desktop' ~/Desktop
+	cp 'BugOpen.png' /usr/local/BugOpen
+	cp 'BugOpen.png' /usr/local/share/icons/hicolor/48x48/apps/
 
+	cp 'BugOpen.desktop' /usr/share/applications/
+	sudo -u $$SUDO_USER \
+		cp '/usr/share/applications/BugOpen.desktop' /home/$$SUDO_USER/Desktop
+
+	@echo
 	@echo "Install Done !"
+	@echo
 
 # ****************************************************
 # Target needed to uninstall the executable from user .local
 
 uninstall:
-	# Kill any active instances.
-	for FILE in $$(pgrep java) ; do \
-		ps -p $$FILE -o args --no-headers | egrep BugOpen && kill $$FILE; \
-	done
+ifneq ($(shell id -u), 0)
+	@echo "You must be root to perform this action. Please re-run with:"
+	@echo "   sudo make uninstall"
+	@echo
+	@exit 1;
+endif
 
-	rm -rf ~/.local/BugOpen
+	@echo
+	@echo "sudo make uninstall: starts ..."
 
-	rm -f ~/.local/share/icons/hicolor/48x48/apps/BugOpen.png
+	rm -rf /usr/local/BugOpen
 
-	rm -f ~/Desktop/BugOpen.desktop
+	rm -f /usr/local/share/icons/hicolor/48x48/apps/BugOpen.png
 
+	rm -f /usr/share/applications/BugOpen.desktop
+	sudo -u $$SUDO_USER \
+		rm -f /home/$$SUDO_USER/Desktop/BugOpen.desktop
+
+	@echo
 	@echo "Uninstall Done !"
+	@echo
 
 # ****************************************************
 # Target needed to clean the source folder for a fresh make
 
 clean:
-	rm -f 'BugOpen.class'
-	rm -f 'BugOpen$$1.class'
-	rm -f 'BugOpen$$2.class'
+	rm -f *.class
 
+	@echo
 	@echo "Clean Done !"
+	@echo

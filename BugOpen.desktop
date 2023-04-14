@@ -4,6 +4,6 @@ Name=BugOpen
 Type=Application
 Terminal=no
 
-Path=~/.local/BugOpen
+Path=/usr/local/BugOpen
 Exec=java --module-path /snap/openjfx/current/sdk/lib/ --add-modules javafx.controls BugOpen
 Icon=BugOpen.png
