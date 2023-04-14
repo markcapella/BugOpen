@@ -59,7 +59,7 @@ endif
 	cp *.class /usr/local/BugOpen
 
 	cp 'BugOpen.png' /usr/local/BugOpen
-	cp 'BugOpen.png' /usr/local/share/icons/hicolor/48x48/apps/
+	cp 'BugOpen.png' /usr/share/icons/hicolor/48x48/apps/
 
 	cp 'BugOpen.desktop' /usr/share/applications/
 	sudo -u $$SUDO_USER \
@@ -85,7 +85,7 @@ endif
 
 	rm -rf /usr/local/BugOpen
 
-	rm -f /usr/local/share/icons/hicolor/48x48/apps/BugOpen.png
+	rm -f /usr/share/icons/hicolor/48x48/apps/BugOpen.png
 
 	rm -f /usr/share/applications/BugOpen.desktop
 	sudo -u $$SUDO_USER \
