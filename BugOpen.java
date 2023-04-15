@@ -32,7 +32,7 @@ import java.util.Scanner;
 
 public class BugOpen extends Application {
     static final String WINDOW_TITLE = "BugOpen";
-    static final String WINDOW_ICON_PNG = "BugOpen.png";
+    static final String WINDOW_ICON_PNG = "bugopen.png";
     static final String TMP_DIR_FOR_THIS_APP = "/tmp/BugOpen";
 
     static final Integer APP_WINDOW_HEIGHT = 400;
@@ -73,7 +73,10 @@ public class BugOpen extends Application {
         try {
             stage.getIcons().add(new Image(getClass().
                 getResourceAsStream(WINDOW_ICON_PNG)));
-        } catch (Exception e) { }
+        } catch (Exception e) {
+            System.out.print("BugOpen: start() WINDOW_ICON_PNG: " +
+                WINDOW_ICON_PNG + " not loaded.\n");
+        }
 
         // Populate mRepoListItems() with user choices of repo names.
         //    (Scan for all '.git' files from user home and down).

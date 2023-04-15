@@ -55,15 +55,11 @@ endif
 
 	rm -rf /usr/local/BugOpen
 	mkdir /usr/local/BugOpen
-
 	cp *.class /usr/local/BugOpen
 
-	cp 'BugOpen.png' /usr/local/BugOpen
-	cp 'BugOpen.png' /usr/share/icons/hicolor/48x48/apps/
-
-	cp 'BugOpen.desktop' /usr/share/applications/
-	sudo -u $$SUDO_USER \
-		cp '/usr/share/applications/BugOpen.desktop' /home/$$SUDO_USER/Desktop
+	cp 'bugopen.desktop' /usr/share/applications/
+	cp 'bugopen.png' /usr/local/BugOpen
+	cp 'bugopen.png' /usr/share/icons/hicolor/48x48/apps/
 
 	@echo
 	@echo "Install Done !"
@@ -84,12 +80,8 @@ endif
 	@echo "sudo make uninstall: starts ..."
 
 	rm -rf /usr/local/BugOpen
-
-	rm -f /usr/share/icons/hicolor/48x48/apps/BugOpen.png
-
-	rm -f /usr/share/applications/BugOpen.desktop
-	sudo -u $$SUDO_USER \
-		rm -f /home/$$SUDO_USER/Desktop/BugOpen.desktop
+	rm -f /usr/share/applications/bugopen.desktop
+	rm -f /usr/share/icons/hicolor/48x48/apps/bugopen.png
 
 	@echo
 	@echo "Uninstall Done !"

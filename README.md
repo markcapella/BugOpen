@@ -17,13 +17,15 @@
 ###    CD into source repo.
 
     make
-    make install
+    make run
 
-    make uninstall
+    sudo make install
+    sudo make uninstall
+
     make clean
 
 
 ## Usage
 
-    Double click the icon that's added to your desktop.
+    Double click the application icon that's added to your system.
  
