@@ -27,5 +27,5 @@
 
 ## Usage
 
-    Double click the application icon that's added to your system.
+    Find and click the icon that's added to your systems menu.
  
