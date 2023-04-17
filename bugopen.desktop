@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=BugOpen
-Comment=BugOpen dev utility
+
 Path=/usr/local/BugOpen
 Exec=java --module-path /snap/openjfx/current/sdk/lib/ --add-modules javafx.controls BugOpen
 Icon=/usr/share/icons/hicolor/48x48/apps/bugopen.png
@@ -9,5 +9,4 @@ Terminal=false
 Type=Application
 StartupNotify=true
 
-OnlyShowIn=GNOME;Unity;Pantheon;KDE;
-Categories=GNOME;GTK;Development;
+Categories=Utility;Accessories;
